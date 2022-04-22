@@ -5,6 +5,7 @@ import csv
 import os
 from util.time_subtraction import time_sub_ms
 from get_VR_event import get_all_event, get_event_by_time
+ROOT_PATH = '../'
 
 
 # 三维空间曲线，采用参数形式
@@ -165,7 +166,7 @@ def cut(filename):
 # 可能存在tracker断连没有数据的情况
 def move(filename):
     # 读取文件
-    df = pd.read_csv("data_csv/" + filename + ".csv")
+    df = pd.read_csv(ROOT_PATH + "/Dataset/raw_motion_data" + filename + ".csv")
     df.head()
     x_max = df["lt_x"].max() if df["lt_x"].max() > df["rt_x"].max() else df["rt_x"].max()
     x_min = df["lt_x"].min() if df["lt_x"].min() < df["rt_x"].min() else df["rt_x"].min()
@@ -176,7 +177,7 @@ def move(filename):
 
 
 if __name__ == '__main__':
-    for txt_file in os.listdir("data_csv"):
+    for txt_file in os.listdir(ROOT_PATH + "/Dataset/raw_motion_data"):
         if os.path.exists("data_event&cut/sifted/" + txt_file.split(".")[0] + ".csv"):
             continue
         print('--- ' + txt_file + ' ---')
