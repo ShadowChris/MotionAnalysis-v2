@@ -115,6 +115,7 @@ if __name__ == '__main__':
     print(z)
     kmeans=Kmeans()
     pred=kmeans.predict(z)
+    print('pred: ')
     print(pred)
     print('purity:')
     print(mypuri(pred))

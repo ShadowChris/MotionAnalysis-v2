@@ -1,0 +1,3 @@
+cluster_event：每个事件聚类后的动作幅度类别定义
+
+event_centroid_boundary.csv：存了每个事件聚类后的质心与类别边界
